@@ -1,0 +1,22 @@
+2013-01-13
+build.sh: use GCC 4.4.3
+defconfig: generate GT-I9070_defconfig
+defconfig: fix the version tag
+ramdisk/default.prop: debugging=1
+ramdisk/init.rc: correct import files
+ramdisk/init.samsung.rc: add init.d 
+ramdisk/init.rc: add init.d service
+ramdisk/sbin: add busybox and parted binary
+ramdisk/recovery.rc: chmod +x
+cpufreq: enable ondemand and set ondemand as default
+
+2013-01-12
+kernel: add JB Opensource
+ramdisk: add stock ramdisk
+defconfig: add u8500_janice_defconfig
+defconfig: modify and add missing configs to u8500_janice_defconfig
+build.sh: use Linaro GCC 4.6.3,change the lib path
+drivers/samsung: add linux 3.0 j4fs driver
+j4fs: modify for janice
+drivers/samsung: add linux 2.6 param driver
+param: fix compile errors in <mach/sec_param.h>

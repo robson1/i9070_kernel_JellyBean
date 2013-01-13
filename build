@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Mulit-call build script
+
+NAME="i9070_kernel"
+DIR="/home/cocafe/Android/i9070_kernel"
+WORKDIR="/home/cocafe/Android"
+
+case "$1" in
+
+	gedit)
+		# Open gedit
+		gedit $DIR/build.sh & 
+		gedit $DIR/kernel-changelog.log & 
+		gedit $DIR/u8500_janice_defconfig & 
+		if [ -f /media/I9070MMC/Notes/TODO.txt ]
+		then
+			gedit /media/I9070MMC/Notes/TODO.txt &
+		fi;
+		;;
+
+	archgpu)
+		# Fix the arch link of mali gpu
+		echo -e "\n\n Fixing Mali GPU arch-ux500 folder ...\n\n"
+		rm -rf $DIR/kernel/drivers/gpu/mali/mali400ko/driver/src/devicedrv/mali/arch/arch-ux500;
+		;;
+
+	clean)
+		# Clean the kernel source
+		. build.sh clean;
+		cd $DIR;
+		;;
+
+	rmkernel)
+		# Remove the kernel source
+		echo -e "\n\n ***Removing kernel source ...***\n\n"
+		cd $WORKDIR;
+		rm -rf $DIR;
+		sync; sync
+		;;
+
+	tar)
+		# Generate a kernel source tarball
+		TIME_START=$SECONDS
+		echo -e "\n\n Building tarball ...\n\n"
+		cd $WORKDIR;
+		tar -zcvf $2.tar.gz $NAME;
+		cd $DIR;
+		TIME_FINISH=$SECONDS
+		echo -e "\n\n Finished in $((TIME_FINISH-TIME_START)) Seconds\n\n"
+		;;
+
+	modules)
+		# Compile kernel modules
+		. $DIR/build.sh modules;
+		sync; sync
+		;;
+
+	*)
+		# Complie kernel source
+		echo -e "\n\n Cleaning build.log ...\n\n"
+		ls -l build.log;
+		rm build.log;
+		echo -e "\n\n Building kernel with logs  ...\n"
+		. build.sh | tee -a build.log;
+		sync; sync
+		;;
+
+esac
+

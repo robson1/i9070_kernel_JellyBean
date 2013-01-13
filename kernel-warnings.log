@@ -1,0 +1,10 @@
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 81 of arch/arm/mach-ux500/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 1144 of kernel/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 493 of mm/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 207 of fs/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 55 of crypto/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 373 of block/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 72 of drivers/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 11 of sound/built-in.o is not in EXIDX output section
+/home/cocafe/Android/toolchains/arm-eabi-linaro-4.6.3/bin/arm-eabi-ld: warning: unwinding may not work because EXIDX input section 981 of net/built-in.o is not in EXIDX output section
+
