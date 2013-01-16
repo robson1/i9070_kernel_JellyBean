@@ -1633,7 +1633,9 @@ static struct lcd_ops s6e63m0_lcd_ops = {
 
 /* This structure defines all the properties of a backlight */
 struct backlight_properties s6e63m0_backlight_props = {
-	.brightness = MAX_REQ_BRIGHTNESS,
+	//.brightness = MAX_REQ_BRIGHTNESS,
+	/* cocafe: no max brightness(255) as default */
+	.brightness = DEFAULT_BRIGHTNESS,
 	.max_brightness = MAX_REQ_BRIGHTNESS,
 	.type = BACKLIGHT_RAW,
 };
@@ -1790,7 +1792,7 @@ static ssize_t auto_brightness_store(struct device *dev,
 			lcd->auto_brightness = value;
 			mutex_unlock(&lcd->lcd_lock);
 			if (lcd->ldi_state)
-				update_brightness(lcd, 0);
+				update_brightness(lcd,0);
 		}
 	}
 	return size;
@@ -2202,6 +2204,13 @@ static int s6e63m0_mcde_panel_resume(struct mcde_display_device *ddev)
 	int ret;
 	struct s6e63m0 *lcd = dev_get_drvdata(&ddev->dev);
 	DPI_DISP_TRACE;
+
+	/* cocafe: update the brightness */
+	update_brightness(lcd,1);
+
+	/* cocafe: set the brightness */
+	//s6e63m0_set_brightness;
+
 	dev_info(&ddev->dev, "Invoked %s\n", __func__);
 
 	/* set_power_mode will handle call platform_enable */
@@ -2217,6 +2226,12 @@ static int s6e63m0_mcde_panel_suspend(struct mcde_display_device *ddev, pm_messa
 {
 	int ret = 0;
 	struct s6e63m0 *lcd = dev_get_drvdata(&ddev->dev);
+
+	/* cocafe: update the brightness */
+	update_brightness(lcd,1);
+
+	/* cocafe: set the brightness */
+	//s6e63m0_set_brightness;
 
 	dev_info(&ddev->dev, "Invoked %s\n", __func__);
 
